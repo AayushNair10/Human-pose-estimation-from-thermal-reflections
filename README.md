@@ -37,38 +37,6 @@ Marigold depth estimator
 MoGe depth estimator
 
 YOLO pose model
-
-Usage Guide
-1. Depth Estimation & Reflector Segmentation
-bash
-Copy code
-python depth_method.py --rgb input_rgb/ --thermal thermal_frames/ --output masks/
-This step:
-
-Generates depth maps using Marigold or MoGe
-
-Produces a binary mask isolating the reflective metal surface
-
-2. Baseline Cylindrical Unwrapping (Naive)
-bash
-Copy code
-python Naive+stitch.py --thermal thermal_frames/ --mirror mirror_frames/ --output stitched/
-Performs:
-
-Uniform horizontal stretch
-
-(Optional) stitching with planar mirror lower-body silhouette
-
-3. YOLO Pose Estimation
-bash
-Copy code
-python YOLO_pose.py --input silhouettes/ --output poses/
-Outputs:
-
-2D human keypoints
-
-Overlayed keypoint visualization
-
 ---
 
 ## Method Pipeline
