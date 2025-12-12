@@ -1,6 +1,7 @@
 # Human Pose Estimation from Curved Thermal Reflections
 ---
 Recovering human pose from distorted thermal reflections using generative depth segmentation, geometric rectification, and full-body silhouette fusion.
+
 ---
 
 ## Project Overview
@@ -37,56 +38,55 @@ Marigold depth estimator
 MoGe depth estimator
 
 YOLO pose model
+
 ---
 
 ## Method Pipeline
 1. Data Acquisition
-Thermal camera: Topdon TC002C (256×192, 25 Hz)
+- Thermal camera: Topdon TC002C (256×192, 25 Hz)
 
-RGB camera for depth estimation
+- RGB camera for depth estimation
 
-Curved reflector: stainless-steel pressure cooker
+- Curved reflector: stainless-steel pressure cooker
 
-Burst-frame averaging removes microbolometer noise
+- Burst-frame averaging removes microbolometer noise
 
-Background subtraction removes static room heat
+- Background subtraction removes static room heat
 
 2. Segmentation via Generative Depth
-Marigold depth model identifies cooker as solid object
+- Marigold depth model identifies cooker as solid object
 
-MoGe alternative depth estimator
+- MoGe alternative depth estimator
 
-Depth map → clean mask of reflective region
+- Depth map → clean mask of reflective region
 
 3. Multi-Stage Geometric Rectification
 (Core of the method)
 
-Radial Distortion Correction
+- Radial Distortion Correction
 
-Brown–Conrady model
+- Brown–Conrady model
 
-k₁ ≈ −0.2
+- Removes spherical “barrel” distortion
 
-Removes spherical “barrel” distortion
+- Keystone Correction (Homography)
 
-Keystone Correction (Homography)
+- Expands upper-body region
 
-Expands upper-body region
+- Fixes “pinhead effect”
 
-Fixes “pinhead effect”
+- Biological Ratio Stretching
 
-Biological Ratio Stretching
+- Target aspect ratio: height:width ≈ 2.1 : 1
 
-Target aspect ratio: height:width ≈ 2.1 : 1
-
-Auto-computes horizontal expansion
+- Auto-computes horizontal expansion
 
 4. Full-Body Silhouette Fusion
-Upper body → cooker reflection
+- Upper body → cooker reflection
 
-Lower body → planar mirror
+- Lower body → planar mirror
 
-Width alignment + Gaussian seam blending
+- Width alignment + Gaussian seam blending
 
 ---
 
