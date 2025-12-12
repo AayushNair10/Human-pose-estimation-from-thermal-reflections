@@ -16,17 +16,6 @@ This project reconstructs a **proportional human silhouette** from a **single cu
 
 ---
 
-## Repository Structure
-
-├── depth_method.py # Depth-based segmentation pipeline (Marigold / MoGe)
-├── Naive+stitch.py # Baseline cylindrical unwrapping + upper-lower silhouette stitching
-├── YOLO_pose.py # YOLO-based pose keypoint estimation on final silhouettes
-├── sample_data/ # (Optional) Thermal + RGB frames
-├── README.md # Project documentation
-└── /results # Output silhouettes, rectified images
-
----
-
 ## Requirements
 
 Install dependencies:
