@@ -23,9 +23,11 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
-Main Libraries Used
-Python 3.8+
 ```
+
+Main Libraries Used
+
+Python 3.8+
 
 OpenCV
 
